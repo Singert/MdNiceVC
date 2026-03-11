@@ -18,6 +18,26 @@ class Content {
   @observable style;
 
   @observable markdownEditor;
+  @observable currentArticle = {
+    DocumentID: "默认文章.md",
+    Content: this.content,
+  };
+
+  @observable folders = [
+    {
+      name: "默认文件夹",
+      articles: [],
+      onSelect: (article) => {
+        this.setCurrentArticle(article);
+      },
+    },
+  ];
+
+  @action.bound
+  setCurrentArticle(article) {
+    this.currentArticle = article;
+    this.setContent(article.Content);
+  }
 
   @action
   setMarkdownEditor = (markdownEditor) => {
@@ -47,7 +67,7 @@ class Content {
     replaceStyle(MARKDOWN_THEME_ID, this.style);
   };
 }
-
+  
 const store = new Content();
 
 // 如果为空先把数据放进去
@@ -81,5 +101,7 @@ replaceStyle(BASIC_THEME_ID, TEMPLATE.basic);
 replaceStyle(MARKDOWN_THEME_ID, store.style);
 
 store.content = window.localStorage.getItem(CONTENT);
+// 加入默认文章作为初始文档
+store.folders[0].articles.push(store.currentArticle);
 
 export default store;

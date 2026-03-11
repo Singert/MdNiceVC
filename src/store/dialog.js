@@ -17,6 +17,9 @@ class Dialog {
 
   @observable isSitDownOpen = false;
 
+  @observable isNewArticleOpen = false;
+
+
   @action
   setImageOpen = (isImageOpen) => {
     this.isImageOpen = isImageOpen;
@@ -55,6 +58,11 @@ class Dialog {
   @action
   setSitDownOpen = (isSitDownOpen) => {
     this.isSitDownOpen = isSitDownOpen;
+  };
+
+  @action
+  setNewArticleOpen = (isOpen) => {
+    this.isNewArticleOpen = isOpen;
   };
 }
 

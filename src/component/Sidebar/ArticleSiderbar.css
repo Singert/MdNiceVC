@@ -1,0 +1,20 @@
+.article-sidebar {
+  background-color: #fdfdfd;
+  border-right: 1px solid #eee;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.sidebar-title {
+  font-size: 14px;
+  font-weight: bold;
+}

@@ -5,7 +5,7 @@ import AboutDialog from "../component/Dialog/AboutDialog";
 import FormDialog from "../component/Dialog/FormDialog";
 import HistoryDialog from "../component/Dialog/HistoryDialog";
 import SitDownDialog from "../component/Dialog/SitDownDialog";
-
+import NewArticleDialog from "../component/Dialog/NewArticleDialog";
 class Dialog extends Component {
   render() {
     return (
@@ -16,6 +16,7 @@ class Dialog extends Component {
         <FormDialog />
         <HistoryDialog />
         <SitDownDialog />
+        <NewArticleDialog />
       </div>
     );
   }

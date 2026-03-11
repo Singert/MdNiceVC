@@ -13,7 +13,8 @@ import Sidebar from "./layout/Sidebar";
 import StyleEditor from "./layout/StyleEditor";
 import EditorMenu from "./layout/EditorMenu";
 import SearchBox from "./component/SearchBox";
-
+import ArticleSidebar from "./component/Sidebar/ArticleSidebar";
+import { Layout } from "antd";
 import "./App.css";
 import "./utils/mdMirror.css";
 
@@ -271,6 +272,12 @@ class App extends Component {
       <appContext.Consumer>
         {({defaultTitle}) => (
           <div className="App">
+              <Layout style={{ height: "100vh" }}>
+                <ArticleSidebar
+                  folders={this.props.content.folders.slices()}
+                  onNewArticle={() => this.props.dialog.setNewArticleOpen(true)}
+                />
+                <Layout>
             <Navbar title={defaultTitle} />
             <div className={textContainerClass}>
               <div id="nice-md-editor" className={mdEditingClass} onMouseOver={(e) => this.setCurrentIndex(1, e)}>
@@ -331,6 +338,8 @@ class App extends Component {
               <Dialog />
               <EditorMenu />
             </div>
+          </Layout>
+        </Layout>
           </div>
         )}
       </appContext.Consumer>
